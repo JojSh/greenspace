@@ -1,2 +1,2 @@
 # greenspace
-Find and rate a green space near you
+Find and rate a green space near you.
