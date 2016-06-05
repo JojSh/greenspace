@@ -1,5 +1,10 @@
-No greenspaces added yet
 
-(u smell lolz)
+<% if Greenspace.all.any? %>
+  <% Greenspace.all.each do |greenspace| %>
+    <h2><%= greenspace.name %></h2>
+  <% end %>
+<% else %>
+  <h1> No greenspaces added yet</h1>
+<% end %>
 
 <a href='#'> Add a greenspace</a>
