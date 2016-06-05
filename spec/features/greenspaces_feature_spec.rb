@@ -23,4 +23,16 @@ feature 'greenspaces' do
       expect(page).not_to have_content 'No greenspaces added yet'
     end
   end
+
+  context 'creating greenspaces' do
+    scenario 'prompts user to fill out a form, then displays the new greenspace' do
+      visit '/greenspaces'
+      click_link 'Add a greenspace'
+      fill_in 'Name', with: 'Richmond Park'
+      click_button 'Create Greenspace'
+      expect(page).to have_content 'Richmond Park'
+      expect(current_path).to eq '/greenspaces'
+    end
+  end
+
 end
