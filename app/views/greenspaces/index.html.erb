@@ -1,6 +1,6 @@
 
-<% if Greenspace.all.any? %>
-  <% Greenspace.all.each do |greenspace| %>
+<% if @greenspaces.any? %>
+  <% @greenspaces.each do |greenspace| %>
     <h2><%= greenspace.name %></h2>
   <% end %>
 <% else %>
