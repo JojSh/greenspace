@@ -47,4 +47,21 @@ feature 'greenspaces' do
     end
   end
 
+  context 'editing greenspaces' do
+
+    before { Greenspace.create name: 'Richmond Park', description: 'Best park in Greater London' }
+
+    scenario 'let a user edit a greenspace' do
+
+      visit '/greenspaces'
+      click_link 'Edit Richmond Park'
+      fill_in 'Name', with: 'Royal Richmond Park'
+      fill_in 'Description', with: 'Best park in the South of England'
+      click_button 'Update Greenspace'
+      expect(page).to have_content 'Royal Richmond Park'
+      expect(page).to have_content 'Best park in the South of England'
+      expect(current_path).to eq '/greenspaces'
+    end
+  end
+
 end
