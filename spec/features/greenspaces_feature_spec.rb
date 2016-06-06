@@ -35,4 +35,16 @@ feature 'greenspaces' do
     end
   end
 
+  context 'viewing greenspaces' do
+
+    let!(:richmond_park) { Greenspace.create(name: 'Richmond Park') }
+
+    scenario 'lets a user view a greenspace page' do
+      visit '/greenspaces'
+      click_link 'Richmond Park'
+      expect(page).to have_content 'Richmond Park'
+      expect(current_path).to eq "/greenspaces/#{richmond_park.id}"
+    end
+  end
+
 end

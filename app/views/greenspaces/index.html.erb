@@ -1,7 +1,7 @@
 
 <% if @greenspaces.any? %>
   <% @greenspaces.each do |greenspace| %>
-    <h2><%= greenspace.name %></h2>
+    <h2><%= link_to greenspace.name, greenspace_path(greenspace) %></h2>
   <% end %>
 <% else %>
   <h1> No greenspaces added yet</h1>

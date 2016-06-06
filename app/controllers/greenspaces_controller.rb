@@ -13,6 +13,10 @@ class GreenspacesController < ApplicationController
     redirect_to '/greenspaces'
   end
 
+  def show
+    @greenspace = Greenspace.find(params[:id])
+  end
+
   private
 
   def greenspace_params
