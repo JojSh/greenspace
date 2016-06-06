@@ -1,0 +1,10 @@
+This is where you can edit <%= @greenspace.name %>...
+<p><p>
+
+<%= form_for @greenspace do |form| %>
+  <%= form.label :name %>:  <%= form.text_field :name %>
+  <p>
+  <%= form.label :description %>:  <%= form.text_field :description %>
+  <p>
+  <%= form.submit %>
+<% end %>

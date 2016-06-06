@@ -17,10 +17,21 @@ class GreenspacesController < ApplicationController
     @greenspace = Greenspace.find(params[:id])
   end
 
+  def edit
+    @greenspace = Greenspace.find(params[:id])
+  end
+
+  def update
+    @greenspace = Greenspace.find(params[:id])
+    @greenspace.update(greenspace_params)
+
+    redirect_to '/greenspaces'
+  end
+
   private
 
   def greenspace_params
-    params.require(:greenspace).permit(:name)
+    params.require(:greenspace).permit(:name, :description)
   end
 
 end

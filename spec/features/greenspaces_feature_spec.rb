@@ -41,7 +41,7 @@ feature 'greenspaces' do
 
     scenario 'lets a user view a greenspace page' do
       visit '/greenspaces'
-      click_link 'Richmond Park'
+      click_link 'Visit Richmond Park'
       expect(page).to have_content 'Richmond Park'
       expect(current_path).to eq "/greenspaces/#{richmond_park.id}"
     end
@@ -58,9 +58,9 @@ feature 'greenspaces' do
       fill_in 'Name', with: 'Royal Richmond Park'
       fill_in 'Description', with: 'Best park in the South of England'
       click_button 'Update Greenspace'
+      click_link 'Visit Royal Richmond Park'
       expect(page).to have_content 'Royal Richmond Park'
       expect(page).to have_content 'Best park in the South of England'
-      expect(current_path).to eq '/greenspaces'
     end
   end
 
