@@ -40,6 +40,14 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.backtrace_exclusion_patterns = [
+     /\/lib\d*\/ruby\//,
+     /bin\//,
+     /gems/,
+     /spec\/spec_helper\.rb/,
+     /lib\/rspec\/(core|expectations|matchers|mocks)/
+   ]
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -89,4 +97,6 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+
 end
