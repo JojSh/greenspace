@@ -3,6 +3,7 @@
   <% @greenspaces.each do |greenspace| %>
     <h2><%= link_to "Visit #{greenspace.name}", greenspace_path(greenspace) %></h2>
     <%= link_to "Edit #{greenspace.name}", edit_greenspace_path(greenspace) %>
+    <%= button_to "Delete #{greenspace.name}", greenspace_path(greenspace), method: :delete %>
 
   <% end %>
 <% else %>

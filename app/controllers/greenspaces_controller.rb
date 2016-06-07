@@ -28,6 +28,14 @@ class GreenspacesController < ApplicationController
     redirect_to '/greenspaces'
   end
 
+  def destroy
+    @greenspace = Greenspace.find(params[:id])
+    @greenspace.destroy
+
+    flash[:notice] = "Greenspace deleted successfully"
+    redirect_to '/greenspaces'
+  end
+
   private
 
   def greenspace_params

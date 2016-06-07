@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+def create_greenspace
+  Greenspace.create name: 'Richmond Park', description: 'Best park in Greater London'
+end
+
 # Specs in this file have access to a helper object that includes
 # the GreenspacesHelper. For example:
 #

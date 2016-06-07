@@ -1,8 +1,6 @@
 require 'rails_helper'
 
-
 feature 'greenspaces' do
-
 
   context 'none have been added yet' do
     scenario 'should display a prompt to add a greenspace' do
@@ -13,9 +11,8 @@ feature 'greenspaces' do
   end
 
   context 'have been added' do
-    before do
-      Greenspace.create(name: 'Richmond Park')
-    end
+
+    before { create_greenspace }
 
     scenario 'display list of greenspaces' do
       visit '/greenspaces'
@@ -49,7 +46,7 @@ feature 'greenspaces' do
 
   context 'editing greenspaces' do
 
-    before { Greenspace.create name: 'Richmond Park', description: 'Best park in Greater London' }
+    before { create_greenspace }
 
     scenario 'let a user edit a greenspace' do
 
@@ -64,4 +61,15 @@ feature 'greenspaces' do
     end
   end
 
+  context 'deleting greenspaces' do
+
+    before { create_greenspace }
+
+    scenario 'removes a greenspace when a user clicks the delete button' do
+      visit '/greenspaces'
+      click_button 'Delete Richmond Park'
+      expect(page).not_to have_content 'Richmond Park'
+      expect(page).to have_content 'Greenspace deleted successfully'
+    end
+  end
 end
