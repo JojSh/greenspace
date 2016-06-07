@@ -1,6 +1,19 @@
-<h2> This is the specific view for...</h2>
-<p><%= @greenspace.name %></p>
+<h2><%= @greenspace.name %></h2>
+<br><br>
 
-<h3>Description: </h3>
+<h4>Description: </h4>
 
 <p><%= @greenspace.description %></p>
+
+<h4>Reviews: </h4>
+
+<%= @greenspace.reviews.each do |review| %>
+  <li>
+    <%= review.thoughts %>
+    <li>
+      <%= review.rating %>
+    </li>
+  </li>
+<% end %>
+
+  <%= link_to "Review #{@greenspace.name}", new_greenspace_review_path(@greenspace) %>
