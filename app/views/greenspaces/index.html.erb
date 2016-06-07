@@ -3,11 +3,18 @@
   <% @greenspaces.each do |greenspace| %>
     <h2><%= link_to "Visit #{greenspace.name}", greenspace_path(greenspace) %></h2>
     <%= link_to "Edit #{greenspace.name}", edit_greenspace_path(greenspace) %>
+    <%= link_to "Review #{greenspace.name}", new_greenspace_review_path(greenspace) %>
     <%= button_to "Delete #{greenspace.name}", greenspace_path(greenspace), method: :delete %>
+    <%= greenspace.reviews.each do |review| %>
+      <li>
+        <%= review.thoughts %>
+        <%= review.rating %>
+      </li>
+    <% end %>
 
   <% end %>
 <% else %>
   <h1> No greenspaces added yet</h1>
 <% end %>
-
+<p> <p>
 <%= link_to('Add a greenspace', new_greenspace_path)%>

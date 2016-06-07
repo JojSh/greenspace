@@ -1,5 +1,5 @@
 require 'rails_helper'
-
-RSpec.describe GreenspacesController, type: :controller do
-
-end
+# 
+# RSpec.describe GreenspacesController, type: :controller do
+#
+# end
