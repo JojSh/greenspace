@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root :to => redirect('/greenspaces')
+
   resources :greenspaces do
     resources :reviews
   end
